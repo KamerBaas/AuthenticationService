@@ -1,8 +1,16 @@
 FROM php:7.2-apache
-COPY src/ /var/www
+COPY /src /var/www/html
+WORKDIR /var/www/html
+
+
+########## CODE BELOW IS IF U WANT TO USE LARAVEL #############
+
+
+#FROM php:7.2-apache
+#COPY src/ /var/www
 #RUN chmod +x /var/www/storage
 #RUN chmod +x /var/www/bootstrap/cache
-COPY src/public /var/www/html
+#COPY src/public /var/www/html
 
 #RUN mv /var/www /var/www &&\
 #    find /var/www/storage/ -type d -exec chmod 755 {} \; &&\
@@ -13,6 +21,7 @@ COPY src/public /var/www/html
 
 # If you want to add custom php.ini
 #COPY config/php.ini /usr/local/etc/php/
-WORKDIR /var/www
-RUN chgrp -R www-data storage bootstrap/cache
-RUN chmod -R ug+rwx storage bootstrap/cache
+#WORKDIR /var/www
+#RUN chgrp -R www-data storage bootstrap/cache
+#RUN chmod -R ug+rwx storage bootstrap/cache
+

@@ -1,2 +1,0 @@
-#Force explicit copy command in docker file for the public folder
-*/public*
