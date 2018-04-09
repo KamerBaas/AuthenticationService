@@ -1,6 +1,7 @@
 FROM php:7.2-apache
 COPY /src /var/www/html
 WORKDIR /var/www/html
+EXPOSE 80
 
 
 ########## CODE BELOW IS IF U WANT TO USE LARAVEL #############
