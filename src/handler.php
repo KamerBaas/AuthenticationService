@@ -1,8 +1,19 @@
 <?php
 date_default_timezone_set("Europe/Amsterdam");
 require_once 'vendor/autoload.php';
+header('Content-Type: application/json');
+#echo json_encode($_REQUEST);
 
-$data = json_decode(file_get_contents('php://input'), true);
+// echo '<pre>'; var_dump($_REQUEST); echo '</pre>';
+
+// #echo '<pre>'; var_dump(file_get_contents('php://input')); echo '<pre>';
+
+$data = json_decode(file_get_contents('php://input'));
+//$jsonobjectje = json_decode($_POST);
+
+//var_dump($data);
+
+//print_r( json_encode($jsonobjectje));
 
 // Get $id_token via HTTPS POST.
 if(!is_null($data)) {
@@ -12,21 +23,21 @@ if(!is_null($data)) {
 	// Configures the time that the token can be used (nbf claim)
 
 	try{
-		$payload = $client->verifyIdToken($data['idtoken']);
+		$payload = $client->verifyIdToken($data->idtoken);
 		if ($payload) {
 		  $userid = $payload['sub'];
 		  // If request specified a G Suite domain:
-		  //$domain = $payload['hd'];
-		  echo '<pre>';var_dump($payload);echo '</pre>';
+		  $domain = $payload['hd'];
+		  echo json_encode($payload);
 		} else {
 		  // Invalid ID token
-			echo 'Error: Invalid token';
+			echo json_encode(['msg' => 'Error: Invalid token']);
 		}
 	} catch(UnexpectedValueException $e){
-		echo 'Error: Given token syntax is invalid';
+		echo json_encode(['msg' => 'Error: Given token syntax is invalid']);
 	}
 } else {
-	echo 'Error: Json body was null';
+	echo json_encode(['msg' => 'Error: Json body was null']);
 }
 
 ?>
