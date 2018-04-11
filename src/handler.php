@@ -17,7 +17,7 @@ $data = json_decode(file_get_contents('php://input'));
 
 // Get $id_token via HTTPS POST.
 if(!is_null($data)) {
-	$CLIENT_ID = "174042023883-m4tocm3ccalf5vjgu9i7j96vduug32bo.apps.googleusercontent.com";
+	$CLIENT_ID = "818816058543-u44dr7g6nvcum89npch966mhp5oi29q6.apps.googleusercontent.com";
 	$client = new Google_Client(['client_id' => $CLIENT_ID]);  // Specify the CLIENT_ID of the app that accesses the backend
 
 	// Configures the time that the token can be used (nbf claim)
