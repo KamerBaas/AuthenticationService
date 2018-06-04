@@ -57,6 +57,7 @@ if(!is_null($data)) {
 		  
 		  	$uid = $payload->getClaim('sub');
 			$user = $firebase->getAuth()->getUser($uid);
+			http_response_code(200);
 		  	echo json_encode($user);
 		} else {
 		  // Invalid ID token
