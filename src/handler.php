@@ -44,7 +44,7 @@ if(!is_null($data)) {
 	//echo json_encode($data);
 	//var_dump($data);
 	try{
-		$payload = $firebase->getAuth()->verifyIdToken($data);
+		$payload = $firebase->getAuth()->verifyIdToken($data->idtoken);
 		//$payload = $client->verifyIdToken($data->idtoken);
 		//response()->json(['success'=>true]); 
 		// echo json_encode($payload);
