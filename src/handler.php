@@ -15,7 +15,7 @@ use Kreait\Firebase\Factory;
 use Kreait\Firebase\ServiceAccount;
 
 
-#var_dump(file_exists(__DIR__.'/firebase_credentials.json'));die;
+#§p(file_exists(__DIR__.'/firebase_credentials.json'));die;
 //$serviceAccount = Firebase::fromServiceAccount(__DIR__.'/firebase_credentials.json');
 $serviceAccount = ServiceAccount::fromJsonFile(__DIR__.'/kamerbaas-nots-firebase.json');
 // echo '<pre>'; var_dump($serviceAccount); echo '</pre>';
@@ -30,7 +30,7 @@ $firebase = (new Factory)
 //die;
 $data = json_decode(file_get_contents('php://input'));
 
-var_dump($data);
+#var_dump($data);
 //$jsonobjectje = json_decode($_POST);
 
 //print_r( json_encode($jsonobjectje));
